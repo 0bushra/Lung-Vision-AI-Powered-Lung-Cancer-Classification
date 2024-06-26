@@ -1,1 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lung cancer classification</title>
+  <link href="https://fonts.googleapis.com/css2?family=Lilita+One&display=swap" rel="stylesheet">
+  <style>
+
+ * {
+      box-sizing: border-box;
+    }
+    body, html {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      font-family: 'Arial', sans-serif;
+      background: linear-gradient(to right, #a6b7cd ,#9087a1); /* Gradient background from purple to blue */
+    }
+
+    .header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 -60px; /* Added horizontal padding */
+    }
+    .header img {
+      width: auto;
+      max-width: 300px; 
+      height: auto; 
+      display: block;
+      margin-right: auto;  
+    }
+    .form-container {
+  max-width: 800px; /* Or any maximum width you prefer */
+  height: 450px; /* Set a fixed height for the container */
+  margin: 20px 0 20px auto; /* Top & Bottom margins set to 20px, Right margin set to 0, Left margin set to auto */
+  padding: 20px;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  overflow-y: scroll; /* This will always show a vertical scrollbar */
+  overflow-x: hidden; /* This will always show a vertical scrollbar */
+  margin-right: 60px;  
+  right: 50px; /* Adjust the value to shift the form to the left */
+}
+    
+  .nav-links {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start; /* Align items to the start (left) */
+  list-style-type: none;
+  margin: -50px 0 0; /* Adjust as needed to raise up and reset right margin */
+  padding: 50px; /* Resets both left and right padding */
+}
+
+.nav-links li {
+  padding: 0 5px; /* Adjust spacing between navigation items as needed */
+
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #fff; /* Adjust the text color as needed */
+  font-weight: bold;
+  display: inline-block;
+  padding: 10px 20px; /* Adjust padding to control the size of the buttons */
+  margin: 0 10px; /* Space between the links */
+  background: #5e5570; /* Use a solid color for the background */
+  border-radius: 20px; /* Adjust as needed to get the rounded corners */
+  transition: background-color 0.3s ease; /* Smooth transition for hover effect */
+}
+
+.nav-links a:hover {
+  background-color: #5e5570; /* Slightly darker shade for hover state */
+}
+.footer {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      text-align: center;
+      padding: 10px 0;
+}
+.main-content h1 {
+  font-family: 'Lilita One', cursive;
+  margin-bottom: 0.2em; /* Reduces space between the titles */
+  /* Keep other styles as is */
+}
+.main-content {
+  text-align: center; /* Aligns text to the right */
+  margin-top: -10px; /* Raise the content up by increasing the negative margin */
+  margin-right: 500px; /* Shifts the content to the right */
+}
+.main-content h1:first-of-type {
+  color: #5e5570;
+  font-size: 90px;
+  /* Keep other styles as is */
+}
+
+.main-content h1:last-of-type {
+  color: #ffffff;
+  font-size: 50px;
+  /* Keep other styles as is */
+}
+
+.content-container {
+      display: flex;
+      align-items: flex-start; /* Aligns items to the top of the container */
+      padding: 120px;
+      margin-top: -80px;
+}
+
+.footer {
+      position: relative; /* Changed from fixed to relative */
+}
+.icon-container {
+      display: flex;
+      align-items: center;
+      background-color: #5e5570; /* Replace with your color value */
+      padding: 10px;
+      border-radius: 20px; /* Rounded corners like in your example */
+}
+    
+.icon {
+      cursor: pointer;
+      margin-right: 10px; /* Space between the icons */
+}
+
+.icon img {
+      width: 30px; /* Example width */
+      height: 30px; /* Example height */
+}
+
+    label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold;
+    }
+    
+    input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 2px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+    input[type='submit'] {
+      width: auto;
+      padding: 10px 20px;
+      background-color: #5e5570;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 16px;
+      font-weight: bold;
+    }
+
+    .container {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: right; /* Aligns content to the right */
+  }
+  form {
+    background-color: #f4f4f4;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  }
+  input[type="file"] {
+    display: block;
+    margin: 10px 0;
+  }
+  
+  input[type="submit"]:hover {
+    background-color: #5e5570;
+  }
+  .prediction {
+    margin-top: 20px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+  }
+  h1 {
+            text-align: center;
+            font-family: 'Lilita One', sans-serif;
+            color: #5e5570;
+        }
+  .image-column {
+    flex: 1; /* Takes 1 portion of the available space */
+    text-align: right; /* Center-align the image */
+  }
+  .form-column {
+    flex: 1; /* Takes 1 portion of the available space */
+    background-color: #f4f4f4;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    margin-left: 20px; /* Adds space between the columns */
+  }
+  input[type="file"], input[type="submit"] {
+    width: 100%; /* Full width of the parent container */
+    margin: 10px 0;
+  }
+  .prediction {
+            font-family: 'Lilita One', sans-serif; /* Change to desired font-family */
+            color: #5e5570; /* Change to desired color */
+            font-size: 20px; /* Optional: adjust font size */
+            font-weight: bold; /* Optional: adjust font weight */
+        }
+
+  .image-container {
+            text-align: center; /* Center the image */
+            margin: 20px 0; /* Add some margin */
+        }
+
+        .upload-box {
+        width: 600px;
+        padding: 20px;
+        border-radius: 8px;
+        background-color: #ffffff;
+        margin-top: 70px;
+        margin-left: 145px; /* Moves the box to the right within the container */
+        margin-right: 0; /* Aligns the box against the right edge */
+    }
+    .upload-area {
+        margin: 10px 0;
+        padding: 20px;
+        border: 2px dashed #5e5570; /* Use color from the browse button */
+        color: #333;
+        cursor: pointer;
+    }
+    .prediction {
+        margin-top: 10px;
+        color: #5e5570; /* Thematic consistency in color */
+    }
+    .file-upload {
+        display: none;
+    }
+    .upload-area:hover {
+        background-color: #cfd4da;
+    }
+</style>
+</head>
+<body class="corner-images">
+  <header class="header img">
+    <img src="{{ url_for('static', filename='images/logo2.png') }}" alt="Logo"  style="max-width: 280px; height: auto; margin-top: -60px;">
+    <div class="navigation-container">
+      <ul class="nav-links">
+        <li><a href="#">Home</a></li>
+        <li><a href="#">FAQ</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Services</a></li>
+        <li><a href="#">Contact</a></li>
+      <div class="icon-container">
+        <div class="icon">
+            <img src="{{ url_for('static', filename='images/search.png') }}" alt="Search" >
+        </div>
+        <div class="icon">
+            <img src="{{ url_for('static', filename='images/Hamburger_icon.svg.png') }}" alt="Menu" >
+        </div>
+      </div>
+    </div>
+    </ul>
+  </header>
+  <h1 style = "margin-right:620px; margin-top: -15px;  font-family: 'Lilita One', sans-serif; color: #ffffff; font-size: 60px; ">Lung cancer classification</h1>
+  <div class="image-container">
+    <img src="{{ url_for('static', filename='images/Lung 3D.png') }}" alt="3D Lung Image" width="550" style = "margin-left:800px; margin-top: -140px;" >
+  </div>
+
+  <div class="upload-box" style = "margin-right:870px; margin-top: -450px;">
+    <h1>Upload an Image</h1>
+    <form action="/predict" method="post" enctype="multipart/form-data">
+        <label for="file-upload" class="upload-area">Drag and drop or <span>browse</span></label>
+        <input id="file-upload" type="file" name="file" required multiple aria-describedby="file-upload-instructions">
+        <div id="file-upload-instructions" style="display: none;">Select one or more files</div>
+        <input type="submit" value="Pedict">
+    </form>
+    {% if prediction %}
+    <div class="prediction">
+        Prediction: {{ prediction }}
+    </div>
+    {% endif %}
+    <div id="file-list"></div>
+</div>
+
+</body>
+
+  <div class="content-container">
+    <main class="main-content"> 
+
+  <!--  <h1 style = margin-bottom:-70px;>Welcome !</h1> -->
+      <h1 style = margin-top:-20px; > </h1>
+      <p></p>
+    </main>
+    </div>
+  </div>
+  <!-- The bottom corner images div might need to be adjusted or removed depending on the new layout -->
+  <footer class="footer">
+  </footer>
+</html>
+
 
