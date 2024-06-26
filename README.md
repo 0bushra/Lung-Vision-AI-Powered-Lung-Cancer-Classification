@@ -1,6 +1,6 @@
 # Lung-Vision-AI-Powered-Lung-Cancer-Classification
 
-Lung Vision is a state-of-the-art tool designed to classify histopathological lung images into three distinct categories: Lung Squamous Cell Carcinoma, Lung Adenocarcinoma, and Lung Benign Tissue. Utilizing deep learning algorithms and a dataset of 15,000 images, this project aims to enhance the diagnostic accuracy and speed in the detection of lung cancer, leveraging technological advancements to significantly improve patient outcomes.
+Lung Vision is a state-of-the-art tool designed to classify histopathological lung images into three distinct categories: Lung Squamous Cell Carcinoma, Lung Adenocarcinoma, and Lung Benign Tissue. Utilizing deep learning algorithms and a dataset of 15,000 images, this project aims to enhance the diagnostic accuracy and speed in the detection of lung cancer, leveraging technological advancements to significantly improve patient outcomes. The dataset used in this project is sourced from Kaggle:https://www.kaggle.com/datasets/andrewmvd/lung-and-colon-cancer-histopathological-images
 
 <p align="center">
   <img src="https://github.com/0bushra/Lung-Vision-AI-Powered-Lung-Cancer-Classification/assets/103776716/73cc31cf-eefb-43b6-8b37-1d0002e429fc" width="200">
