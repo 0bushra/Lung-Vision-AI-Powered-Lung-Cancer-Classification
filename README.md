@@ -11,6 +11,19 @@ The Lung Vision project utilizes a Convolutional Neural Network (CNN) designed t
 The training includes using a validation set to tune parameters and control overfitting, with a separate testing set to evaluate generalization to new data. The final trained model is deployed using Flask within a Docker container to ensure reliability across different systems, providing a user-friendly web interface for uploading images and receiving diagnostic predictions. This project not only highlights advanced AI in medical diagnostics but also ensures robust performance and practical usability in clinical settings.
 
 # Technologies Used
-Flask: Serves the backend framework to create a user-friendly web interface for uploading and classifying images.
-Docker: Ensures the application is easily deployable and consistent across all platforms.
-MongoDB: Manages and stores image metadata and user data, providing scalability and flexibility in data handling.
+- Flask: Serves the backend framework to create a user-friendly web interface for uploading and classifying images.
+- Docker: Ensures the application is easily deployable and consistent across all platforms.
+- MongoDB: Manages and stores image metadata and user data, providing scalability and flexibility in data handling.
+
+# Installation
+# Clone the repository
+git clone https://github.com/yourgithubusername/lung-vision.git
+
+# Navigate to the project directory
+cd lung-vision
+
+# Build Docker container
+docker build -t lung-vision .
+
+# Run Docker container
+docker run -p 5000:5000 lung-vision
