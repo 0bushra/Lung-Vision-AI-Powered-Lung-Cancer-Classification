@@ -27,6 +27,8 @@ Lung cancer remains one of the most common and lethal types of cancer worldwide.
 The Lung Vision project utilizes a Convolutional Neural Network (CNN) designed to classify histopathological images into three categories of lung tissues: Lung Squamous Cell Carcinoma, Lung Adenocarcinoma, and Lung Benign Tissue. The CNN architecture is tailored to process standardized images of 224x224 pixels using multiple convolutional and pooling layers to extract and learn from visual features, followed by fully connected layers that drive the classification. Training the model involves crucial steps such as data preprocessing, batch processing with 64 images per batch for efficiency, and data augmentation to enhance model generalization. The model is optimized using the Adam optimizer and evaluates performance through cross-entropy loss.
 
 The training includes using a validation set to tune parameters and control overfitting, with a separate testing set to evaluate generalization to new data. The final trained model is deployed using Flask within a Docker container to ensure reliability across different systems, providing a user-friendly web interface for uploading images and receiving diagnostic predictions. This project not only highlights advanced AI in medical diagnostics but also ensures robust performance and practical usability in clinical settings.
+![image](https://github.com/0bushra/Lung-Vision-AI-Powered-Lung-Cancer-Classification/assets/103776716/c10f614d-5f7c-4941-9c13-348c5bd8a75a)
+
 
 # Technologies Used
 - Flask: Serves the backend framework to create a user-friendly web interface for uploading and classifying images.
@@ -47,25 +49,31 @@ Clone the Repository
    git clone https://github.com/yourgithubusername/lung-vision.git
    cd lung-vision
 2. **Set up a virtual environment**
-   For Windows:
-      ```bash
-      python -m venv venv
-      venv\Scripts\activate
-3. **Install the required packages:**
-    ```bash
-     pip install -r requirements.txt
+Then, create and activate a virtual environment:
 
-4. **Set up the environment variables:**
- Create a .env file in the project root directory and add the following:
+ - On Windows:
    ```bash
-   MONGO_URI=your_mongodb_connection_string
-   FLASK_APP=app.py
-   FLASK_ENV=development
-Replace your_mongodb_connection_string with your actual MongoDB connection string.
+   venv\Scripts\activate
+- On Unix or MacOS:
+   ```bash
+   source venv/bin/activate
 
-5. **Run the application:**
+3. **Install the Required Packages:**
+Install the required Python packages specified in requirements.txt:
+   ```bash
+   pip install -r requirements.txt
+
+4. **Run the Application:**
    ```bash
     python app.py
+
+# Usage
+Once the application is running, navigate to http://localhost:5000 in your web browser to start classifying histopathological images. Follow the on-screen instructions to upload an image and receive its classification.
+
+# Authors
+Bushra Alziara - [Bushra Alziara](https://www.linkedin.com/in/bushra-alziara-031651233/).
+
+
 
 
 
