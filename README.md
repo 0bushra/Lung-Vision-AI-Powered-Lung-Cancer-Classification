@@ -21,5 +21,35 @@ Ensure that you have the following installed:
 - Git
 - Docker
 Clone the Repository
-First, clone the repository to your local machine:
-git clone https://github.com/yourgithubusername/lung-vision.git
+1. **Clone the repository:**
+
+   Clone the Lung Vision repository to your local machine by running:
+
+   ```bash
+   git clone https://github.com/yourgithubusername/lung-vision.git
+   cd lung-vision
+2. **Set up a virtual environment**
+   For Windows:
+      ```bash
+      python -m venv venv
+      venv\Scripts\activate
+3. **Install the required packages:**
+    ```bash
+     pip install -r requirements.txt
+
+4. **Set up the environment variables:**
+ Create a .env file in the project root directory and add the following:
+   ```bash
+   MONGO_URI=your_mongodb_connection_string
+   FLASK_APP=app.py
+   FLASK_ENV=development
+Replace your_mongodb_connection_string with your actual MongoDB connection string.
+
+5. **Run the application:**
+   ```bash
+    python app.py
+
+
+
+
+
