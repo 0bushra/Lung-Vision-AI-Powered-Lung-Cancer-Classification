@@ -2,6 +2,24 @@
 
 Lung Vision is a state-of-the-art tool designed to classify histopathological lung images into three distinct categories: Lung Squamous Cell Carcinoma, Lung Adenocarcinoma, and Lung Benign Tissue. Utilizing deep learning algorithms and a dataset of 15,000 images, this project aims to enhance the diagnostic accuracy and speed in the detection of lung cancer, leveraging technological advancements to significantly improve patient outcomes.
 
+<p align="center">
+  <img src="https://github.com/0bushra/Lung-Vision-AI-Powered-Lung-Cancer-Classification/assets/103776716/73cc31cf-eefb-43b6-8b37-1d0002e429fc" width="200">
+  <img src="https://github.com/0bushra/Lung-Vision-AI-Powered-Lung-Cancer-Classification/assets/103776716/76139a15-c27c-4b72-b877-88f922827c59" width="200">
+  <img src="https://github.com/0bushra/Lung-Vision-AI-Powered-Lung-Cancer-Classification/assets/103776716/1c3a0221-7bf2-4622-98bd-66ff3011fe9d" width="200">
+</p>
+<table align="center" style="font-size: 14px; text-align: center; width: 100%;">
+  <tr>
+    <td><em>Lung Adenocarcinoma</em></td>
+    <td><em>Lung Benign Tissue</em></td>
+    <td><em>Lung Squamous Cell Carcinoma</em></td>
+  </tr>
+</table>
+
+
+
+
+
+
 # Project Overview
 Lung cancer remains one of the most common and lethal types of cancer worldwide. Early detection is crucial for successful treatment outcomes. Lung Vision addresses this need by providing an AI-driven tool that classifies lung tissue samples with high accuracy, aiding pathologists and medical researchers in their diagnostic processes.
 
@@ -48,8 +66,6 @@ Replace your_mongodb_connection_string with your actual MongoDB connection strin
 5. **Run the application:**
    ```bash
     python app.py
-
-
 
 
 
