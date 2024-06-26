@@ -16,14 +16,10 @@ The training includes using a validation set to tune parameters and control over
 - MongoDB: Manages and stores image metadata and user data, providing scalability and flexibility in data handling.
 
 # Installation
-# Clone the repository
+Ensure that you have the following installed:
+
+- Git
+- Docker
+Clone the Repository
+First, clone the repository to your local machine:
 git clone https://github.com/yourgithubusername/lung-vision.git
-
-# Navigate to the project directory
-cd lung-vision
-
-# Build Docker container
-docker build -t lung-vision .
-
-# Run Docker container
-docker run -p 5000:5000 lung-vision
